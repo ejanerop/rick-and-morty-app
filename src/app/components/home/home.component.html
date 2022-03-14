@@ -1,50 +1,14 @@
 <app-cover></app-cover>
 
-<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-  <div
-    class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"
-  >
-    <div class="my-3 py-3">
-      <h2 class="display-5">Characters</h2>
-    </div>
-    <div
-      class="bg-light shadow-sm mx-auto character-image"
-      style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-    ></div>
-  </div>
-  <div
-    class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-  >
-    <div class="my-3 p-3">
-      <h2 class="display-5">Locations</h2>
-    </div>
-    <div
-      class="bg-dark shadow-sm mx-auto location-image"
-      style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-    ></div>
-  </div>
-</div>
-<div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-  <div
-    class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-  >
-    <div class="my-3 p-3">
-      <h2 class="display-5">Episodes</h2>
-    </div>
-    <div
-      class="bg-dark shadow-sm mx-auto episode-image"
-      style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-    ></div>
-  </div>
-  <div
-    class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"
-  >
-    <div class="my-3 py-3">
-      <h2 class="display-5">About</h2>
-    </div>
-    <div
-      class="bg-light shadow-sm mx-auto"
-      style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-    ></div>
-  </div>
+<div
+  class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3"
+  style="flex-wrap: wrap"
+>
+  <ng-container *ngFor="let item of items; let i = index">
+    <app-tile
+      [title]="item.title"
+      [dark]="i % 2 == 0"
+      [imageUrl]="item.imageUrl"
+    ></app-tile>
+  </ng-container>
 </div>

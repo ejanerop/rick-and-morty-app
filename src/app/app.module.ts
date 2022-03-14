@@ -9,6 +9,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { LocationsComponent } from './components/locations/locations.component';
 import { EpisodesComponent } from './components/episodes/episodes.component';
 import { CoverComponent } from './components/home/cover/cover.component';
+import { TileComponent } from './components/home/tile/tile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CoverComponent } from './components/home/cover/cover.component';
     CharactersComponent,
     LocationsComponent,
     EpisodesComponent,
-    CoverComponent
+    CoverComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,
