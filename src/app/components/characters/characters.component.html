@@ -8,6 +8,22 @@
   />
 </div>
 
+<div class="pagination-container">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item disabled" [ngClass]="{ disabled: currentPage == 1 }">
+        <a class="page-link" (click)="prevPage()">Previous</a>
+      </li>
+      <li class="page-item disabled">
+        <a class="page-link"> Page {{ currentPage }} of {{ pages }} </a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: currentPage == pages }">
+        <a class="page-link" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <div class="characters-container">
   <ng-container *ngFor="let item of characters">
     <app-character [character]="item"></app-character>
