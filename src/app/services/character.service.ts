@@ -15,4 +15,10 @@ export class CharacterService {
 
     return this.http.get(url);
   }
+
+  getCharacter(id: string | null) {
+    const url = `${this.baseUrl}/character/${id}`;
+
+    return this.http.get(url);
+  }
 }

@@ -15,4 +15,9 @@ export class EpisodeService {
 
     return this.http.get(url);
   }
+  getEpisode(id: string | null) {
+    const url = `${this.baseUrl}/episode/${id}`;
+
+    return this.http.get(url);
+  }
 }

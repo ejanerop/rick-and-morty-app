@@ -1,0 +1,60 @@
+<div class="character-container">
+  <div class="image-container">
+    <img [src]="character?.image" />
+  </div>
+  <div class="character-info">
+    <h1>{{ character?.name }}</h1>
+    <div class="section">
+      <span class="status">
+        <span class="{{ character?.status | lowercase }}"></span>
+        {{ character?.status }} - {{ character?.species }}
+      </span>
+    </div>
+    <div class="section">
+      <span class="gender" *ngIf="character?.gender">
+        Gender: {{ character?.gender }}
+      </span>
+    </div>
+    <div class="section">
+      <span class="from" *ngIf="character?.origin">
+        From: {{ character.origin.name }}
+      </span>
+    </div>
+    <div class="section">
+      <span class="location" *ngIf="character?.location">
+        Last seen: {{ character.location.name }}
+      </span>
+    </div>
+    <div class="section">
+      <span class="episodes" *ngIf="character?.episode"
+        >Appears in {{ character.episode.length }} episodes</span
+      >
+    </div>
+  </div>
+</div>
+
+<div class="episodes-container">
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Season</th>
+        <th scope="col">Episode</th>
+        <th scope="col">Title</th>
+        <th scope="col">Air Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let episode of episodes">
+        <td>{{ episode.season }}</td>
+        <td>{{ episode.number }}</td>
+        <td>
+          <a href=""></a>
+          {{ episode.name }}
+        </td>
+        <td>
+          {{ episode.air_date }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -14,6 +14,7 @@ import { TileComponent } from './components/home/tile/tile.component';
 import { CharacterComponent } from './components/characters/character/character.component';
 import { UrlToIdPipe } from './pipes/url-to-id.pipe';
 import { FormsModule } from '@angular/forms';
+import { CharacterPageComponent } from './components/character-page/character-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     TileComponent,
     CharacterComponent,
     UrlToIdPipe,
+    CharacterPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
