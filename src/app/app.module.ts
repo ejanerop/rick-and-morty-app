@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -10,6 +11,9 @@ import { LocationsComponent } from './components/locations/locations.component';
 import { EpisodesComponent } from './components/episodes/episodes.component';
 import { CoverComponent } from './components/home/cover/cover.component';
 import { TileComponent } from './components/home/tile/tile.component';
+import { CharacterComponent } from './components/characters/character/character.component';
+import { UrlToIdPipe } from './pipes/url-to-id.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,12 @@ import { TileComponent } from './components/home/tile/tile.component';
     LocationsComponent,
     EpisodesComponent,
     CoverComponent,
-    TileComponent
+    TileComponent,
+    CharacterComponent,
+    UrlToIdPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

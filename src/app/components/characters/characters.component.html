@@ -1,1 +1,15 @@
-<p>characters works!</p>
+<div class="search-container">
+  <input
+    type="text"
+    class="form-control-lg"
+    placeholder="Search..."
+    [(ngModel)]="term"
+    (ngModelChange)="this.searchUpdate.next($event)"
+  />
+</div>
+
+<div class="characters-container">
+  <ng-container *ngFor="let item of characters">
+    <app-character [character]="item"></app-character>
+  </ng-container>
+</div>

@@ -1,0 +1,15 @@
+.characters-container {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
