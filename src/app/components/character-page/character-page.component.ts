@@ -12,6 +12,7 @@ export class CharacterPageComponent implements OnInit {
   id: string | null = this.route.snapshot.paramMap.get('id');
   character: any;
   episodes: any = [];
+  loading: boolean = false;
 
   constructor(
     private characterService: CharacterService,
@@ -20,8 +21,8 @@ export class CharacterPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.characterService.getCharacter(this.id).subscribe((data: any) => {
-      console.log(data);
       this.character = data;
       let episodes = data.episode.map((episode: string) => {
         return episode.split('/').pop();
@@ -38,7 +39,7 @@ export class CharacterPageComponent implements OnInit {
             return episode;
           });
         }
-        console.log(this.episodes);
+        this.loading = false;
       });
     });
   }

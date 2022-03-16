@@ -1,4 +1,6 @@
-<div class="character-container">
+<app-loading [loading]="loading"></app-loading>
+
+<div class="character-container" *ngIf="!loading">
   <div class="image-container">
     <img [src]="character?.image" />
   </div>
@@ -33,7 +35,7 @@
   </div>
 </div>
 
-<div class="episodes-container">
+<div class="episodes-container" *ngIf="!loading">
   <table class="table table-dark table-striped table-hover">
     <thead>
       <tr>
