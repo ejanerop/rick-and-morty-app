@@ -2,6 +2,9 @@
   <span class="name">
     {{ location.name }} <span class="type">({{ location.type }})</span>
   </span>
-  <span class="dimension">{{ location.dimension }}</span>
+  <span class="dimension">
+    <span class="bold">Dimension: </span
+    >{{ location.dimension | withoutDimension }}</span
+  >
   <span class="residents">Residents: {{ location.residents.length }}</span>
 </div>

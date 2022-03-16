@@ -19,6 +19,7 @@ import { LocationComponent } from './components/locations/location/location.comp
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { WithoutDimensionPipe } from './pipes/without-dimension.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     FooterComponent,
     LoadingComponent,
     NotfoundComponent,
+    WithoutDimensionPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
