@@ -1,1 +1,32 @@
-<p>locations works!</p>
+<div class="search-container">
+  <input
+    type="text"
+    class="form-control-lg"
+    placeholder="Search..."
+    [(ngModel)]="term"
+    (ngModelChange)="this.searchUpdate.next($event)"
+  />
+</div>
+
+<div class="pagination-container">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item disabled" [ngClass]="{ disabled: currentPage == 1 }">
+        <a class="page-link" (click)="prevPage()">Previous</a>
+      </li>
+      <li class="page-item disabled">
+        <a class="page-link"> Page {{ currentPage }} of {{ pages }} </a>
+      </li>
+      <li class="page-item" [ngClass]="{ disabled: currentPage == pages }">
+        <a class="page-link" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="locations-container">
+  <app-location
+    *ngFor="let location of locations"
+    [location]="location"
+  ></app-location>
+</div>

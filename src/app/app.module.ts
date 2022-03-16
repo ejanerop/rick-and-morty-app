@@ -15,6 +15,8 @@ import { CharacterComponent } from './components/characters/character/character.
 import { UrlToIdPipe } from './pipes/url-to-id.pipe';
 import { FormsModule } from '@angular/forms';
 import { CharacterPageComponent } from './components/character-page/character-page.component';
+import { LocationComponent } from './components/locations/location/location.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CharacterPageComponent } from './components/character-page/character-pa
     CharacterComponent,
     UrlToIdPipe,
     CharacterPageComponent,
+    LocationComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
