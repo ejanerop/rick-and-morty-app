@@ -23,7 +23,6 @@ export class CharactersComponent implements OnInit {
       .pipe(debounceTime(300), distinctUntilChanged())
       .subscribe((value) => {
         this.currentPage = 1;
-        console.log(value);
         this.loadCharacters();
       });
   }

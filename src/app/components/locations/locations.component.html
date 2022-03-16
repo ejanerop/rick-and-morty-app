@@ -8,7 +8,11 @@
   />
 </div>
 
-<div class="pagination-container">
+<app-loading [loading]="loading"></app-loading>
+
+<app-notfound [visible]="notFound"></app-notfound>
+
+<div class="pagination-container" *ngIf="!loading && !notFound">
   <nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item disabled" [ngClass]="{ disabled: currentPage == 1 }">
@@ -24,7 +28,7 @@
   </nav>
 </div>
 
-<div class="locations-container">
+<div class="locations-container" *ngIf="!loading && !notFound">
   <app-location
     *ngFor="let location of locations"
     [location]="location"

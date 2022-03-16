@@ -15,6 +15,8 @@ export class LocationsComponent implements OnInit {
   pages: number = 1;
   next: string | null = '';
   prev: string | null = '';
+  loading: boolean = false;
+  notFound: boolean = false;
 
   constructor(private locationService: LocationService) {
     this.searchUpdate
@@ -31,15 +33,23 @@ export class LocationsComponent implements OnInit {
   }
 
   loadLocations() {
-    this.locationService
-      .getLocations(this.term, this.currentPage)
-      .subscribe((data: any) => {
+    this.loading = true;
+    this.notFound = false;
+    this.locationService.getLocations(this.term, this.currentPage).subscribe(
+      (data: any) => {
         console.log(data);
+        this.loading = false;
         this.locations = data.results;
         this.pages = data.info.pages;
         this.prev = data.info.prev;
         this.next = data.info.next;
-      });
+      },
+      (error) => {
+        this.locations = [];
+        this.loading = false;
+        this.notFound = true;
+      }
+    );
   }
 
   nextPage() {
