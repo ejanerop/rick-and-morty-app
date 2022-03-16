@@ -15,6 +15,8 @@ export class CharactersComponent implements OnInit {
   pages: number = 1;
   next: string | null = '';
   prev: string | null = '';
+  loading: boolean = false;
+  notFound: boolean = false;
 
   constructor(private characterService: CharacterService) {
     this.searchUpdate
@@ -31,15 +33,22 @@ export class CharactersComponent implements OnInit {
   }
 
   loadCharacters() {
-    this.characterService
-      .getCharacters(this.term, this.currentPage)
-      .subscribe((data: any) => {
-        console.log(data);
+    this.loading = true;
+    this.notFound = false;
+    this.characterService.getCharacters(this.term, this.currentPage).subscribe(
+      (data: any) => {
+        this.loading = false;
         this.characters = data.results;
         this.pages = data.info.pages;
         this.prev = data.info.prev;
         this.next = data.info.next;
-      });
+      },
+      (error) => {
+        this.characters = [];
+        this.loading = false;
+        this.notFound = true;
+      }
+    );
   }
 
   nextPage() {

@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { CharacterPageComponent } from './components/character-page/character-page.component';
 import { LocationComponent } from './components/locations/location/location.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CharacterPageComponent,
     LocationComponent,
     FooterComponent,
+    LoadingComponent,
+    NotfoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
