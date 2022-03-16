@@ -6,8 +6,7 @@
   background: rgb(60, 62, 68);
   border-radius: 0.5rem;
   margin: 0.75rem;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  box-shadow: rgb(0 0 0 / 10%) 0 4px 6px -1px, rgb(0 0 0 / 6%) 0 2px 4px -1px;
 
   .image-container {
     flex: 2 1 0%;
@@ -16,7 +15,7 @@
     .character-image {
       width: 100%;
       height: 100%;
-      margin: 0px;
+      margin: 0;
       opacity: 1;
       transition: opacity 0.5s ease 0s;
       object-position: center center;
