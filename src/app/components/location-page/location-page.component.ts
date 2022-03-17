@@ -23,7 +23,6 @@ export class LocationPageComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.locationService.getLocation(this.id).subscribe((data: any) => {
-      console.log(data);
       this.location = data;
       let characters = data.residents.map((resident: string) => {
         return resident.split('/').pop();
