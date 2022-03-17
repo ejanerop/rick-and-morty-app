@@ -23,6 +23,7 @@ import { WithoutDimensionPipe } from './pipes/without-dimension.pipe';
 import { LocationPageComponent } from './components/location-page/location-page.component';
 import { EpisodePipe } from './pipes/episode.pipe';
 import { EpisodePageComponent } from './components/episode-page/episode-page.component';
+import { SeasonPipe } from './pipes/season.pipe';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { EpisodePageComponent } from './components/episode-page/episode-page.com
     LocationPageComponent,
     EpisodePipe,
     EpisodePageComponent,
+    SeasonPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
