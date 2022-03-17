@@ -12,4 +12,14 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .episodes-table tr {
+    cursor: pointer;
+  }
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
 }

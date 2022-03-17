@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import { EpisodeService } from 'src/app/services/episode.service';
 
 @Component({
@@ -10,34 +11,57 @@ import { EpisodeService } from 'src/app/services/episode.service';
 export class EpisodesComponent implements OnInit {
   episodes: any[] = [];
   seasons: any[] = [];
+  term: string = '';
   loading: boolean = false;
-  constructor(private episodeService: EpisodeService, private router: Router) {}
+  searchUpdate = new Subject<string>();
+  notFound: boolean = false;
+
+  constructor(private episodeService: EpisodeService, private router: Router) {
+    this.searchUpdate
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((value) => {
+        this.episodes = [];
+        this.seasons = [];
+        this.loading = true;
+        this.notFound = false;
+        this.loadEpisodesRecursively(1);
+      });
+  }
 
   ngOnInit(): void {
+    this.episodes = [];
+    this.seasons = [];
+    this.loading = true;
+    this.notFound = false;
     this.loadEpisodesRecursively(1);
   }
 
   loadEpisodesRecursively(page: number) {
-    this.loading = true;
-    this.episodeService.getEpisodes('', page).subscribe((data: any) => {
-      this.episodes = this.episodes.concat(data.results);
-      if (data.info.next) {
-        this.loadEpisodesRecursively(page + 1);
-      } else {
-        let seasons = this.episodes.reduce((seasons, episode) => {
-          let season = parseInt(episode.episode.substring(1, 3));
-          (seasons[season] = seasons[season] || []).push(episode);
-          return seasons;
-        }, {});
-        Object.keys(seasons).forEach((season) => {
-          this.seasons.push({
-            number: season,
-            episodes: seasons[season],
+    this.episodeService.getEpisodes(this.term, page).subscribe(
+      (data: any) => {
+        this.episodes = this.episodes.concat(data.results);
+        if (data.info.next) {
+          this.loadEpisodesRecursively(page + 1);
+        } else {
+          let seasons = this.episodes.reduce((seasons, episode) => {
+            let season = parseInt(episode.episode.substring(1, 3));
+            (seasons[season] = seasons[season] || []).push(episode);
+            return seasons;
+          }, {});
+          Object.keys(seasons).forEach((season) => {
+            this.seasons.push({
+              number: season,
+              episodes: seasons[season],
+            });
+            this.loading = false;
           });
-          this.loading = false;
-        });
+        }
+      },
+      (error) => {
+        this.loading = false;
+        this.notFound = true;
       }
-    });
+    );
   }
 
   goToEpisode(episode: any) {

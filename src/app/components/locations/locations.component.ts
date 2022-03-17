@@ -23,7 +23,6 @@ export class LocationsComponent implements OnInit {
       .pipe(debounceTime(300), distinctUntilChanged())
       .subscribe((value) => {
         this.currentPage = 1;
-        console.log(value);
         this.loadLocations();
       });
   }
@@ -37,7 +36,6 @@ export class LocationsComponent implements OnInit {
     this.notFound = false;
     this.locationService.getLocations(this.term, this.currentPage).subscribe(
       (data: any) => {
-        console.log(data);
         this.loading = false;
         this.locations = data.results;
         this.pages = data.info.pages;
