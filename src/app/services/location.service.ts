@@ -16,4 +16,10 @@ export class LocationService {
 
     return this.http.get(url);
   }
+
+  getLocation(id: string | null) {
+    const url = `${this.baseUrl}/location/${id}`;
+
+    return this.http.get(url);
+  }
 }
