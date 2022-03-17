@@ -8,9 +8,9 @@ export class EpisodeService {
   baseUrl: string = 'https://rickandmortyapi.com/api';
   constructor(private http: HttpClient) {}
 
-  getEpisodes(term: string = '') {
-    const url = `${this.baseUrl}/episodes${
-      term.trim() != '' ? `?name=${term}` : ''
+  getEpisodes(term: string = '', page: number = 1) {
+    const url = `${this.baseUrl}/episode?page=${page}${
+      term.trim() != '' ? `&name=${term}` : ''
     }`;
 
     return this.http.get(url);
