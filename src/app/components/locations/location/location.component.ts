@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -8,7 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LocationComponent implements OnInit {
   @Input() location: any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  goToLocation() {
+    this.router.navigateByUrl(`/locations/${this.location.id}`);
+  }
 }

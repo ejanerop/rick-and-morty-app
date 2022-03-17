@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { WithoutDimensionPipe } from './pipes/without-dimension.pipe';
+import { LocationPageComponent } from './components/location-page/location-page.component';
+import { EpisodePipe } from './pipes/episode.pipe';
+import { EpisodePageComponent } from './components/episode-page/episode-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { WithoutDimensionPipe } from './pipes/without-dimension.pipe';
     LoadingComponent,
     NotfoundComponent,
     WithoutDimensionPipe,
+    LocationPageComponent,
+    EpisodePipe,
+    EpisodePageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
