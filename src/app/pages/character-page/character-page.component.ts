@@ -12,6 +12,7 @@ export class CharacterPageComponent implements OnInit {
   id: string | null = this.route.snapshot.paramMap.get('id');
   character: any;
   episodes: any = [];
+  seasons: any = [];
   loading: boolean = false;
 
   constructor(
@@ -29,18 +30,17 @@ export class CharacterPageComponent implements OnInit {
       });
       this.episodeService.getEpisode(episodes).subscribe((data: any) => {
         if (episodes.length == 1) {
-          data.season = parseInt(data.episode.substring(1, 3));
-          data.number = parseInt(data.episode.substring(4, 6));
           this.episodes.push(data);
         } else {
           this.episodes = data.map((episode: any) => {
-            episode.season = parseInt(episode.episode.substring(1, 3));
-            episode.number = parseInt(episode.episode.substring(4, 6));
             return episode;
           });
         }
+        this.seasons = this.episodeService.mapToSeasons(this.episodes);
         this.loading = false;
       });
     });
   }
+
+  goToEpisode(episode: any) {}
 }

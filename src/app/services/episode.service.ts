@@ -20,4 +20,20 @@ export class EpisodeService {
 
     return this.http.get(url);
   }
+
+  mapToSeasons(episodes: any[]) {
+    let seasons: any[] = [];
+    let seasonsObj = episodes.reduce((seasons, episode) => {
+      let season = parseInt(episode.episode.substring(1, 3));
+      (seasons[season] = seasons[season] || []).push(episode);
+      return seasons;
+    }, {});
+    Object.keys(seasonsObj).forEach((season) => {
+      seasons.push({
+        number: season,
+        episodes: seasonsObj[season],
+      });
+    });
+    return seasons;
+  }
 }

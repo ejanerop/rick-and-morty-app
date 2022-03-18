@@ -43,18 +43,8 @@ export class EpisodesComponent implements OnInit {
         if (data.info.next) {
           this.loadEpisodesRecursively(page + 1);
         } else {
-          let seasons = this.episodes.reduce((seasons, episode) => {
-            let season = parseInt(episode.episode.substring(1, 3));
-            (seasons[season] = seasons[season] || []).push(episode);
-            return seasons;
-          }, {});
-          Object.keys(seasons).forEach((season) => {
-            this.seasons.push({
-              number: season,
-              episodes: seasons[season],
-            });
-            this.loading = false;
-          });
+          this.seasons = this.episodeService.mapToSeasons(this.episodes);
+          this.loading = false;
         }
       },
       (error) => {
