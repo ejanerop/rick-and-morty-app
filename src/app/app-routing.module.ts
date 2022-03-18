@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { EpisodePageComponent } from './pages/episode-page/episode-page.component';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { LocationPageComponent } from './pages/location-page/location-page.component';
 import { LocationsComponent } from './pages/locations/locations.component';
 import { CharacterPageComponent } from './pages/character-page/character-page.component';

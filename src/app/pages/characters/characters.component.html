@@ -29,7 +29,8 @@
 </div>
 
 <div class="characters-container" *ngIf="!loading && !notFound">
-  <ng-container *ngFor="let item of characters">
-    <app-character [character]="item"></app-character>
-  </ng-container>
+  <app-character
+    *ngFor="let item of characters"
+    [character]="item"
+  ></app-character>
 </div>
