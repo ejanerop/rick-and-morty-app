@@ -1,10 +1,12 @@
 <div class="character">
   <div class="image-container">
-    <img
-      class="character-image"
-      [src]="character.image"
-      [alt]="character.name"
-    />
+    <a routerLink="/characters/{{ character.id }}">
+      <img
+        class="character-image"
+        [src]="character.image"
+        [alt]="character.name"
+      />
+    </a>
   </div>
   <div class="character-card">
     <div class="section">
