@@ -1,6 +1,6 @@
 # RickAndMortyApp
 
-App built in Angular 13.2 that uses the [Rick and Morty API](https://rickandmortyapi.com/) to display the characters, episodes and locations from the show.
+App built in Angular 13 that uses the [Rick and Morty API](https://rickandmortyapi.com/) to display the characters, episodes and locations from the show.
 
 <p align="center">
 <a href="https://app.netlify.com/sites/rick-and-morty-pedia/deploys"><img src="https://api.netlify.com/api/v1/badges/b08f289a-7f48-43be-b0e4-056fac7867a4/deploy-status" alt="Netlify Status"></a>
